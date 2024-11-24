@@ -9,10 +9,19 @@ const listShareRoutes = require('./routes/listShareRoutes');
 
 // Initialize Express app
 const app = express();
-app.use(express.json());
 
 // Connect to MongoDB
 connectDB();
+
+// Middleware to parse JSON and URL-encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Debugging middleware to log the request body
+app.use((req, res, next) => {
+    console.log('Request body:', req.body);
+    next();
+  });
 
 // API Routes
 app.use('/api/lists', listRoutes);
