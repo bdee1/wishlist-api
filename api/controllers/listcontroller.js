@@ -1,13 +1,14 @@
 const List = require('../models/List');
+const authenticateToken = require('../middleware/authMiddleware');
 
 const getLists = async (req, res) => {
   try {
-    const { userId } = req.params; // Extract 'userId' from route parameters
+    const { userId } = req.params;
     if (!userId) {
-        return res.status(400).json({ message: 'User ID is required in the route path' }); // Validation check
+      return res.status(400).json({ message: 'User ID is required in the route path' });
     }
 
-    const lists = await List.find({ ownerId: userId }); // Use 'userId' to query the database
+    const lists = await List.find({ ownerId: userId });
     res.json(lists);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -33,10 +34,14 @@ const createList = async (req, res) => {
 const deleteList = async (req, res) => {
   try {
     await List.findByIdAndDelete(req.params.id);
-    res.json({ message: 'List deleted' });
+    res.status(204).send();
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
-module.exports = { getLists, createList, deleteList };
+module.exports = {
+  getLists: [authenticateToken, getLists],
+  createList: [authenticateToken, createList],
+  deleteList: [authenticateToken, deleteList],
+};
