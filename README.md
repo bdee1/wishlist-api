@@ -123,3 +123,10 @@
   - `listId` (string): List ID.
 - **Response**:
   - `shares` (array): Array of list shares.
+  - 
+
+**Environment Variables**
+You will need to create a .env file in the root of the api folder.  this file shoudl contain values for the following Variables:
+- MONGO_URI: this is the URI for connecting to your mongoDB database
+- PORT: this is the port that the server will run on
+- JWT_SECRET: this is a secret value that you will use to generate your JWT Tokens
