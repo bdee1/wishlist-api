@@ -131,7 +131,7 @@ You will need to create a .env file in the root of the api folder.  this file sh
 - PORT: this is the port that the server will run on
 - JWT_SECRET: this is a secret value that you will use to generate your JWT Tokens
 
-### ***Authentication***
+### **Authentication**
 1. Before using any endpoints you will first need to register yourself as a new user.  do this using the /register endpoint.
 1. Once you have a user account in the database, you will need to use the /login endpoint.  it will return a JWT token and a refresh token.   The JWT token will be valid for 1 hour and the refresh token will be valid for 7 days.
-1. once you have your JWT Token you will need to add an 'Authorization' header to your requests.  The value shoudl be 'Bearer YOUR_TOKEN' where YOUR_TOKEN is the token you received.
+1. once you have your JWT Token you will need to add an 'Authorization' header to your requests.  The value should be 'Bearer YOUR_TOKEN' where YOUR_TOKEN is the token you received.
