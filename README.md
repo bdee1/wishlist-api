@@ -125,7 +125,7 @@
   - `shares` (array): Array of list shares.
   - 
 
-**Environment Variables**
+### **Environment Variables**
 You will need to create a .env file in the root of the api folder.  this file shoudl contain values for the following Variables:
 - MONGO_URI: this is the URI for connecting to your mongoDB database
 - PORT: this is the port that the server will run on
