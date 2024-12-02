@@ -12,8 +12,9 @@ router.post('/:listId/share', async (req, res) => {
 
 // Get all users shared with a list
 router.get('/:listId/share', async (req, res) => {
-  const shares = await ListShare.find({ listId: req.params.listId }).populate('userId');
-  res.status(200).send(shares);
+  //const shares = await ListShare.find({ listId: req.params.listId }).populate('userId');
+  const sharedLists = await ListShare.find({ userId: req.params.userId });
+  res.status(200).send(sharedLists);
 });
 
 module.exports = router;

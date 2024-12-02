@@ -34,7 +34,7 @@ const login = async (req, res) => {
 };
 
 const register = async (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, firstName, lastName } = req.body;
 
   try {
     const existingUser = await User.findOne({ email });
@@ -44,6 +44,8 @@ const register = async (req, res) => {
     const newUser = new User({
       email,
       password,
+      firstName,
+      lastName,
     });
 
     const savedUser = await newUser.save();

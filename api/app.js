@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
-
+const multer = require('multer');
 
 // Import routes
 const listRoutes = require('./routes/listRoutes');
@@ -10,24 +10,24 @@ const listItemRoutes = require('./routes/listItemRoutes');
 const listShareRoutes = require('./routes/listShareRoutes');
 const authRoutes = require('./routes/authRoutes');
 
-// Import controllers
-//const listController = require('./controllers/listController');
-
 // Initialize Express app
 const app = express();
 
 // Connect to MongoDB
 connectDB();
 
-// Middleware to parse JSON and URL-encoded data
+// Middleware to parse JSON
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+// Middleware to parse form-data
+const upload = multer();
+app.use(upload.none());
 
 // Debugging middleware to log the request body
 app.use((req, res, next) => {
     console.log('Request body:', req.body);
     next();
-  });
+});
 
 // API Routes
 app.use('/api/auth', authRoutes);

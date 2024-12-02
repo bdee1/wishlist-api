@@ -11,7 +11,7 @@ const listItemSchema = new mongoose.Schema({
   color: String,
   notes: String,
   parentNotes: String,
-  status: { type: String, enum: ['ordered', 'shipped', 'received'] }
+  status: { type: String, enum: ['available', 'ordered', 'shipped', 'received'] }
 });
 
 module.exports = mongoose.model('ListItem', listItemSchema);
