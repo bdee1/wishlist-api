@@ -1,9 +1,17 @@
 # Frontend Documentation 
 authentication token from backend is stored in HTTP only cookie
+/login endpoint does nto return the authentication token because it is stored in a cookie on the server
 Currently the wishlists data is being pulled form a JSON file.  We will need to update this to pull from the backend API.
 
 Start the frontent using npm run dev from \frontent
 Start the backend using npm start from \backend
+
+To Do:
+1. for production you will need to require HTTPS for the api and the authentication
+1. set the frontend to pull from the api rather than the JSON file
+1. 
+
+
 
 # API Documentation
 
