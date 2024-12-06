@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const connectDB = require('./config/db');
 const multer = require('multer');
+const cors = require('cors');
 
 // Import routes
 const listRoutes = require('./routes/listRoutes');
@@ -23,10 +24,20 @@ app.use(express.json());
 const upload = multer();
 app.use(upload.none());
 
+// Configure CORS
+const allowedOrigins = process.env.NODE_ENV === 'production'
+  ? ['https://yourdomain.com']
+  : ['http://localhost:3000'];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+}));
+
 // Debugging middleware to log the request body
 app.use((req, res, next) => {
-    console.log('Request body:', req.body);
-    next();
+  console.log('Request body:', req.body);
+  next();
 });
 
 // API Routes

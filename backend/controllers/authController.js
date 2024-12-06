@@ -27,7 +27,18 @@ const login = async (req, res) => {
     user.refreshToken = refreshToken;
     await user.save();
 
-    res.json({ accessToken, refreshToken });
+    // Set HTTP-only cookies
+    const cookieOptions = {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Set secure flag only in production
+      sameSite: 'Strict',
+      maxAge: 3600000 // 1 hour
+    };
+
+    res.cookie('accessToken', accessToken, cookieOptions);
+    res.cookie('refreshToken', refreshToken, { ...cookieOptions, maxAge: 604800000 }); // 7 days
+
+    res.json({ message: 'Login successful' });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
@@ -40,7 +51,7 @@ const register = async (req, res) => {
     const existingUser = await User.findOne({ email });
     if (existingUser) return res.status(400).json({ message: 'Email already in use.' });
 
-    //note that the password gets saved using the pre save middleware in /models/User.js
+    // Note that the password gets saved using the pre-save middleware in /models/User.js
     const newUser = new User({
       email,
       password,
@@ -56,7 +67,7 @@ const register = async (req, res) => {
 };
 
 const refresh = async (req, res) => {
-  const { refreshToken } = req.body;
+  const { refreshToken } = req.cookies;
   if (!refreshToken) return res.status(401).json({ message: 'Access denied. No refresh token provided.' });
 
   try {
@@ -67,7 +78,16 @@ const refresh = async (req, res) => {
     }
 
     const newAccessToken = generateAccessToken(user);
-    res.json({ accessToken: newAccessToken });
+
+    // Set new access token as HTTP-only cookie
+    res.cookie('accessToken', newAccessToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production', // Set secure flag only in production
+      sameSite: 'Strict',
+      maxAge: 3600000 // 1 hour
+    });
+
+    res.json({ message: 'Token refreshed' });
   } catch (err) {
     if (err.name === 'TokenExpiredError') {
       return res.status(401).json({ message: 'Refresh token expired. Please log in again.' });

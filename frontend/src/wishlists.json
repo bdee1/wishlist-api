@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "title": "Birthday List for John",
+    "type": "Birthday",
+    "description": "This is my birthday list with gift ideas for John. John has always been passionate about technology and gadgets, so this list includes some of the latest tech items that he would love. From smart home devices to the newest gaming consoles, this list has it all.",
+    "shared": "Private",
+    "itemCount": "3 Items",
+    "company": {
+      "name": "Tech Innovators",
+      "description": "Tech Innovators is a cutting-edge technology company specializing in innovative solutions and products. We strive to deliver exceptional value to our clients through our expertise and dedication.",
+      "contactEmail": "info@techinnovators.com",
+      "contactPhone": "123-456-7890"
+    }
+  },
+  {
+    "id": "2",
+    "title": "Anniversary List for Parents",
+    "type": "Anniversary",
+    "description": "This is my anniversary list with gift ideas for my parents. My parents have been together for over 30 years, and this list includes thoughtful and meaningful gifts to celebrate their love and commitment. From personalized keepsakes to romantic getaways, these gifts are sure to make their anniversary special.",
+    "shared": "Shared",
+    "itemCount": "4 Items",
+    "company": {
+      "name": "Creative Solutions",
+      "description": "Creative Solutions is a leading provider of creative and innovative solutions. We are committed to delivering high-quality services and products to our clients.",
+      "contactEmail": "support@creativesolutions.com",
+      "contactPhone": "987-654-3210"
+    }
+  },
+  {
+    "id": "3",
+    "title": "Holiday List for Friends",
+    "type": "Holiday",
+    "description": "This is my holiday list with gift ideas for my friends. The holiday season is a time for giving, and this list includes a variety of gifts that are perfect for friends. From cozy winter accessories to fun and festive decorations, these gifts will bring joy and cheer to any holiday celebration.",
+    "shared": "Shared",
+    "itemCount": "6 Items",
+    "company": {
+      "name": "Innovative Tech",
+      "description": "Innovative Tech is a forward-thinking technology company that specializes in developing innovative products and solutions. Our mission is to enhance the lives of our clients through technology.",
+      "contactEmail": "contact@innovativetech.com",
+      "contactPhone": "555-123-4567"
+    }
+  },
+  {
+    "id": "4",
+    "title": "Graduation List for Sarah",
+    "type": "Graduation",
+    "description": "This is my graduation list with gift ideas for Sarah. Sarah has worked hard to achieve her academic goals, and this list includes gifts that will help her celebrate this important milestone. From professional attire for job interviews to inspirational books, these gifts will support her as she embarks on her next journey.",
+    "shared": "Private",
+    "itemCount": "5 Items",
+    "company": {
+      "name": "Future Tech",
+      "description": "Future Tech is a technology company focused on developing futuristic products and solutions. We aim to revolutionize the tech industry with our innovative approach.",
+      "contactEmail": "info@futuretech.com",
+      "contactPhone": "321-654-9870"
+    }
+  },
+  {
+    "id": "5",
+    "title": "Wedding List for Alice and Bob",
+    "type": "Wedding",
+    "description": "This is my wedding list with gift ideas for Alice and Bob. Alice and Bob are about to start their new life together, and this list includes gifts that will help them create a beautiful and comfortable home. From kitchen appliances to home decor, these gifts are perfect for newlyweds.",
+    "shared": "Shared",
+    "itemCount": "7 Items",
+    "company": {
+      "name": "Elegant Events",
+      "description": "Elegant Events is a premier event planning company specializing in weddings and special occasions. We provide exceptional service to make your events memorable.",
+      "contactEmail": "contact@elegantevents.com",
+      "contactPhone": "654-321-0987"
+    }
+  },
+  {
+    "id": "6",
+    "title": "Baby Shower List for Emma",
+    "type": "Baby Shower",
+    "description": "This is my baby shower list with gift ideas for Emma. Emma is expecting her first child, and this list includes essential items that will help her prepare for the arrival of her baby. From baby clothes to nursery furniture, these gifts are both practical and adorable.",
+    "shared": "Shared",
+    "itemCount": "8 Items",
+    "company": {
+      "name": "Baby Bliss",
+      "description": "Baby Bliss is a company dedicated to providing high-quality baby products and services. We aim to make parenting easier and more enjoyable.",
+      "contactEmail": "support@babybliss.com",
+      "contactPhone": "789-012-3456"
+    }
+  }
+]
